@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Kleptomanicat
   m_EditorClassIdentifier: 
   <GamePath>k__BackingField: https://janboehling.itch.io/kleptomanicat
-  <Thumbnail>k__BackingField: {fileID: 21300000, guid: eff447c62f403834e891a1518ce6e98f, type: 3}
+  <Thumbnail>k__BackingField: {fileID: 21300000, guid: a23284913570c5d4086017c8acac8cba, type: 3}
   <TrailerVideo>k__BackingField: {fileID: 32900000, guid: 2ac1cc85fd3c2054595b7d8727381d1b, type: 3}
   <Author>k__BackingField: "Jan B\xF6hling +3"
-  <Semester>k__BackingField: 5
+  <Semester>k__BackingField: 1
   <SemesterAltText>k__BackingField: Game Jam
   <Title>k__BackingField: Kleptomanicat

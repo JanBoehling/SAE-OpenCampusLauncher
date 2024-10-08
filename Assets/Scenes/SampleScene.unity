@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 57975184}
   - component: {fileID: 57975183}
   - component: {fileID: 57975185}
+  - component: {fileID: 57975186}
   m_Layer: 5
   m_Name: GameImg (4)
   m_TagString: Untagged
@@ -259,13 +260,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 57975186}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &57975186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57975181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 6d16390a6f7388f4dbe9774974956744, type: 2}
 --- !u!1 &128950631
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,8 +292,9 @@ GameObject:
   - component: {fileID: 128950634}
   - component: {fileID: 128950633}
   - component: {fileID: 128950635}
+  - component: {fileID: 128950636}
   m_Layer: 5
-  m_Name: GameImg (4)
+  m_Name: GameImg (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,13 +418,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 128950636}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &128950636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128950631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
 --- !u!1 &198472960
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -63.33333}
+  m_AnchoredPosition: {x: 375, y: -63.333252}
   m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &198472962
@@ -688,6 +716,7 @@ GameObject:
   - component: {fileID: 280503528}
   - component: {fileID: 280503527}
   - component: {fileID: 280503529}
+  - component: {fileID: 280503530}
   m_Layer: 5
   m_Name: GameImg (3)
   m_TagString: Untagged
@@ -813,13 +842,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 280503530}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &280503530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280503525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: ebd73f87a645b41448c2d26c1f18ed9c, type: 2}
 --- !u!1 &319342875
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +874,7 @@ GameObject:
   - component: {fileID: 319342878}
   - component: {fileID: 319342877}
   - component: {fileID: 319342880}
+  - component: {fileID: 319342881}
   m_Layer: 5
   m_Name: GameImg (1)
   m_TagString: Untagged
@@ -878,7 +921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: da5da150747b7194ba6a34e4203baf7f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e225306ce1438d74bbe7c997e8c8f0aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -957,13 +1000,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ed841ab4e8ec1284db29daee72134801, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 319342881}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &319342881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319342875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 2fa69eafa01352749bf76082cc2b8827, type: 2}
 --- !u!1 &336234880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,8 +1536,9 @@ GameObject:
   - component: {fileID: 708291554}
   - component: {fileID: 708291553}
   - component: {fileID: 708291555}
+  - component: {fileID: 708291556}
   m_Layer: 5
-  m_Name: GameImg (3)
+  m_Name: GameImg (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1605,13 +1662,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 708291556}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &708291556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708291551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 8d2d1c2da42e0e94696dc6eabd2dae92, type: 2}
 --- !u!1 &757103712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2332,7 @@ GameObject:
   - component: {fileID: 1542108770}
   - component: {fileID: 1542108769}
   - component: {fileID: 1542108771}
+  - component: {fileID: 1542108772}
   m_Layer: 5
   m_Name: GameImg (2)
   m_TagString: Untagged
@@ -2308,7 +2379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eff447c62f403834e891a1518ce6e98f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e225306ce1438d74bbe7c997e8c8f0aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2387,13 +2458,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 8d2d1c2da42e0e94696dc6eabd2dae92, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 1542108772}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1542108772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542108767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: a5699c902afdb6641b382e99c1b04d05, type: 2}
 --- !u!1 &1546016612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,8 +2784,9 @@ GameObject:
   - component: {fileID: 1851046327}
   - component: {fileID: 1851046326}
   - component: {fileID: 1851046328}
+  - component: {fileID: 1851046329}
   m_Layer: 5
-  m_Name: GameImg (1)
+  m_Name: GameImg (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2825,13 +2910,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 1851046329}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1851046329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851046324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 0b58eee2e277ff04dba27794f88a590d, type: 2}
 --- !u!1 &2046866561
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,8 +3087,9 @@ GameObject:
   - component: {fileID: 2056071759}
   - component: {fileID: 2056071758}
   - component: {fileID: 2056071760}
+  - component: {fileID: 2056071761}
   m_Layer: 5
-  m_Name: GameImg (2)
+  m_Name: GameImg (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3114,13 +3213,26 @@ MonoBehaviour:
         m_MethodName: LoadDetails
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Game, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2056071761}
+          m_ObjectArgumentAssemblyTypeName: GameSelector, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &2056071761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056071756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff2888952e0d14b89c31670e138fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 07025397fab5db24a96e7c025379c99f, type: 2}
 --- !u!1 &2101620504
 GameObject:
   m_ObjectHideFlags: 0

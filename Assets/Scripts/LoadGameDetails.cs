@@ -12,8 +12,15 @@ public class LoadGameDetails : MonoBehaviour
     [SerializeField] private TMP_Text semesterText;
     [SerializeField] private TMP_Text titleText;
 
-    public void LoadDetails(Game game)
+    private void Update()
     {
+        Screen.fullScreen = true;
+    }
+
+    public void LoadDetails(GameSelector gameSelector)
+    {
+        var game = gameSelector.Game;
+
         startButton.onClick.RemoveAllListeners();
         startButton.onClick.AddListener(() => StartGame(game.GamePath));
 
