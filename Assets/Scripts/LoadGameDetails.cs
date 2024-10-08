@@ -12,11 +12,6 @@ public class LoadGameDetails : MonoBehaviour
     [SerializeField] private TMP_Text semesterText;
     [SerializeField] private TMP_Text titleText;
 
-    private void Update()
-    {
-        Screen.fullScreen = true;
-    }
-
     public void LoadDetails(GameSelector gameSelector)
     {
         var game = gameSelector.Game;
@@ -24,7 +19,7 @@ public class LoadGameDetails : MonoBehaviour
         startButton.onClick.RemoveAllListeners();
         startButton.onClick.AddListener(() => StartGame(game.GamePath));
 
-        videoPlayer.clip = game.TrailerVideo;
+        videoPlayer.url = game.TrailerVideoPath;
         videoPlayer.Play();
 
         nameText.text = game.Author;

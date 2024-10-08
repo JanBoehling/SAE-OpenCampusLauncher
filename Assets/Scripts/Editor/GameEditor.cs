@@ -8,7 +8,7 @@ public class GameEditor : Editor
 
     private void OnEnable()
     {
-        game = (Game)target;
+        
     }
 
     public override void OnInspectorGUI()
