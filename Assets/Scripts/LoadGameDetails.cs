@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,14 +14,16 @@ public class LoadGameDetails : MonoBehaviour
     [SerializeField] private TMP_Text semesterText;
     [SerializeField] private TMP_Text titleText;
 
+    public static string GetBasePath(string textAssetName) => Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DemoGames" + Path.DirectorySeparatorChar + textAssetName + Path.DirectorySeparatorChar;
+
     public void LoadDetails(GameSelector gameSelector)
     {
         var game = gameSelector.Game;
 
         startButton.onClick.RemoveAllListeners();
-        startButton.onClick.AddListener(() => StartGame(game.GamePath));
+        startButton.onClick.AddListener(() => StartGame(GetBasePath(gameSelector.FileName) + game.GamePath));
 
-        videoPlayer.url = game.TrailerVideoPath;
+        videoPlayer.url = new string(GetBasePath(gameSelector.FileName).Select(x => x == '\\' ? '/' : (x == '/' ? '\\' : x)).ToArray()) + gameSelector.FileName + ".mp4";
         videoPlayer.Play();
 
         nameText.text = game.Author;

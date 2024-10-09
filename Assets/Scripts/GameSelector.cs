@@ -6,16 +6,22 @@ public class GameSelector : MonoBehaviour
 {
     [SerializeField] private TextAsset game;
     public Game Game => (Game)JsonUtility.FromJson(game.text, typeof(Game));
+    public string FileName => game.name;
 
     private void Start()
     {
         if (string.IsNullOrWhiteSpace(Game.ThumbnailPath)) return;
-        GetComponent<Image>().sprite = LoadSpriteFromFile(Game.ThumbnailPath);
+        GetComponent<Image>().sprite = LoadSpriteFromFile(LoadGameDetails.GetBasePath(FileName) + Game.ThumbnailPath);
     }
 
     [ContextMenu("Generate file")]
     public void SaveToJson()
     {
+        Debug.Log(Path.DirectorySeparatorChar);
+        Debug.Log(Path.PathSeparator);
+        Debug.Log(Path.VolumeSeparatorChar);
+        Debug.Log(Path.AltDirectorySeparatorChar);
+        return;
         string filePath = Path.Combine(Application.persistentDataPath, "test.json");
         Debug.Log($"saved to {Application.persistentDataPath}");
         File.WriteAllText(filePath, JsonUtility.ToJson(new Game()
