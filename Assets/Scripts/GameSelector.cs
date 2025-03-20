@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Obsolete]
 public class GameSelector : MonoBehaviour
 {
     [SerializeField] private TextAsset game;
@@ -11,7 +12,7 @@ public class GameSelector : MonoBehaviour
     private void Start()
     {
         if (string.IsNullOrWhiteSpace(Game.ThumbnailPath)) return;
-        GetComponent<Image>().sprite = LoadSpriteFromFile(LoadGameDetails.GetBasePath(FileName) + Game.ThumbnailPath);
+        GetComponent<Image>().sprite = LoadSpriteFromFile(GameDetailsLoader.GetBasePath(FileName) + Game.ThumbnailPath);
     }
 
     [ContextMenu("Generate file")]
