@@ -82,10 +82,3 @@ public class GameDetailsLoader : MonoBehaviour
         src.Play();
     }
 }
-
-[System.Serializable]
-public enum Direction
-{
-    Left,
-    Right
-}
