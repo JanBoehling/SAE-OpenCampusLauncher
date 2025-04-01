@@ -6,28 +6,24 @@ using System.Collections;
 using UnityEditor;
 #endif
 
-public class PageMoveController : MonoBehaviour
+public class PageMoveController : MonoSingleton<PageMoveController>
 {
     [SerializeField] private RectTransform _gameSelectionContainer;
     [SerializeField] private float _animationDuration = 1f;
     [SerializeField] private AnimationCurve _pageMoveAnimationCurve;
 
-    private static int _pageAmount = 0;
+    private int _pageAmount = 0;
 
     private Button[] _buttons;
 
-    public static int CurrentPage { get; private set; }
+    public int CurrentPage { get; private set; }
 
     private Coroutine _pageMoveAnimation;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _buttons = GetComponentsInChildren<Button>();
-    }
-
-    private void Start()
-    {
-        UpdateInteractivity();
     }
 
     public void MovePage(SerializableEnumComponent direction)
@@ -46,7 +42,11 @@ public class PageMoveController : MonoBehaviour
         _buttons[1].interactable = CurrentPage < _pageAmount - 1;
     }
 
-    public static void SetPageAmount(int amount) => _pageAmount = amount;
+    public void SetPageAmount(int amount)
+    {
+        _pageAmount = amount;
+        UpdateInteractivity();
+    }
 
     private IEnumerator MovePageCO(int direction)
     {
@@ -80,7 +80,7 @@ public class PageMoverEditor : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        EditorGUILayout.LabelField($"Current Page: {PageMoveController.CurrentPage}");
+        EditorGUILayout.LabelField($"Current Page: {PageMoveController.Instance.CurrentPage}");
     }
     public override bool RequiresConstantRepaint() => true;
 }

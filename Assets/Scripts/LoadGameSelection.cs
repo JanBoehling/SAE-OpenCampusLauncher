@@ -31,7 +31,7 @@ public class LoadGameSelection : MonoBehaviour
         games = LoadGamesFromFolder(ProgramUtils.PathManager.Paths.DetailSelectionBasePath);
         GenerateGameCards(games);
 
-        PageMoveController.SetPageAmount(Mathf.RoundToInt(Mathf.Ceil(games.Length / 8f)));
+        PageMoveController.Instance.SetPageAmount(Mathf.RoundToInt(Mathf.Ceil(games.Length / 8f)));
     }
 
     [ContextMenu("Load Games From Folder")]

@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSelectionContainer: {fileID: 209146666}
-  _animationDuration: 1
+  _animationDuration: 0.5
   _pageMoveAnimationCurve:
     serializedVersion: 2
     m_Curve:
