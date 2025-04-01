@@ -32,6 +32,7 @@ public class GameDetailsLoader : MonoBehaviour
         videoPlayer.errorReceived -= (_, _) => videoPlayerImage.texture = noPreviewTexture;
     }
 
+    [System.Obsolete("This method links to a deprecated directory. Use instead the PathManager")]
     public static string GetBasePath(string textAssetName) => Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DemoGames" + Path.DirectorySeparatorChar + textAssetName + Path.DirectorySeparatorChar;
 
     [System.Obsolete("GameSelector class is not in use anymore. Use instead: LoadDetails(Game)")]
@@ -44,7 +45,7 @@ public class GameDetailsLoader : MonoBehaviour
         startButton.onClick.RemoveAllListeners();
         startButton.onClick.AddListener(() => StartGame(GetBasePath(gameSelector.FileName) + game.GamePath));
 
-        string videoUrl = new string(GetBasePath(gameSelector.FileName).Select(x => x == '\\' ? '/' : (x == '/' ? '\\' : x)).ToArray()) + gameSelector.FileName + ".mp4";
+        string videoUrl = new string(GetBasePath(gameSelector.FileName).Select(x => x == '/' ? '/' : (x == '/' ? '/' : x)).ToArray()) + gameSelector.FileName + ".mp4";
         Debug.Log(videoUrl);
         videoPlayer.url = videoUrl;
         videoPlayer.Play();
@@ -64,7 +65,7 @@ public class GameDetailsLoader : MonoBehaviour
 
         videoPlayerImage.texture = loadingVideoTexture;
 
-        string videoUrl = new string(game.TrailerVideoPath.Select(x => x == '\\' ? '/' : (x == '/' ? '\\' : x)).ToArray());
+        string videoUrl = new string(game.TrailerVideoPath.Select(x => x == '/' ? '/' : (x == '/' ? '/' : x)).ToArray());
         videoPlayer.url = videoUrl;
         videoPlayer.Prepare();
 

@@ -10,19 +10,25 @@ public class LoadGameSelection : MonoBehaviour
     
     private GameDetailsLoader gameDetailsLoader;
 
-    private static readonly string gameBasePath = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DemoGames" + Path.DirectorySeparatorChar;
-    private static readonly string gameDetailsPath = gameBasePath + "_Selection" + Path.DirectorySeparatorChar;
+
+    //private static readonly string gameBasePath = ProgramUtils.PathManager.Paths.GameFileBasePath;
+    //private static readonly string gameDetailsPath = ProgramUtils.PathManager.Paths.DetailSelectionBasePath;
+
+    //private static readonly string gameBasePath = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DemoGames" + Path.DirectorySeparatorChar;
+    //private static readonly string gameDetailsPath = gameBasePath + "_Selection" + Path.DirectorySeparatorChar;
 
     private Game[] games;
 
     private void Awake()
     {
+        ProgramUtils.PathManager.LoadPathFile();
+
         gameDetailsLoader = FindFirstObjectByType<GameDetailsLoader>();
     }
 
     private void Start()
     {
-        games = LoadGamesFromFolder(gameDetailsPath);
+        games = LoadGamesFromFolder(ProgramUtils.PathManager.Paths.DetailSelectionBasePath);
         GenerateGameCards(games);
 
         PageMoveController.SetPageAmount(Mathf.RoundToInt(Mathf.Ceil(games.Length / 8f)));
@@ -90,11 +96,5 @@ public class LoadGameSelection : MonoBehaviour
         var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0));
 
         return sprite;
-    }
-
-    private void SetThumbnail(Game game)
-    {
-        if (string.IsNullOrWhiteSpace(game.ThumbnailPath)) return;
-        GetComponent<Image>().sprite = LoadSpriteFromFile(GameDetailsLoader.GetBasePath(nameof(game)) + game.ThumbnailPath);
     }
 }
