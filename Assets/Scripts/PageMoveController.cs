@@ -25,6 +25,11 @@ public class PageMoveController : MonoBehaviour
         _buttons = GetComponentsInChildren<Button>();
     }
 
+    private void Start()
+    {
+        UpdateInteractivity();
+    }
+
     public void MovePage(SerializableEnumComponent direction)
     {
         if (_pageMoveAnimation != null) return;
