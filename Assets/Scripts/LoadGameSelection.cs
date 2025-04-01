@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class LoadGameSelection : MonoBehaviour
 {
+    [SerializeField, Tooltip("Debug")] private bool _loadImages = true;
     [SerializeField] private GameObject gameCardPrefab;
     [SerializeField] private Transform[] gameCardAnchorRows;
     
@@ -67,7 +68,7 @@ public class LoadGameSelection : MonoBehaviour
             gameCardBG.GetComponent<Image>().sprite = null;
             gameCard.transform.localScale *= .9f;
 
-            //gameCard.GetComponent<Image>().sprite = LoadSpriteFromFile(gameDetails[i].ThumbnailPath);
+            if (_loadImages) gameCard.GetComponent<Image>().sprite = LoadSpriteFromFile(gameDetails[i].ThumbnailPath);
 
             var cardButton = gameCard.AddComponent<Button>();
             cardButton.transition = Selectable.Transition.None;

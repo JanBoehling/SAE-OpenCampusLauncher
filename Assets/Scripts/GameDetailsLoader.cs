@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -16,11 +15,22 @@ public class GameDetailsLoader : MonoBehaviour
     [SerializeField] private RawImage videoPlayerImage;
     [SerializeField] private RenderTexture videoRenderTexture;
     [SerializeField] private Texture loadingVideoTexture;
+    [SerializeField] private Texture noPreviewTexture;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text semesterText;
     [SerializeField] private TMP_Text titleText;
-    [SerializeField] private Button movePageLeftButton;
-    [SerializeField] private Button movePageRightButton;
+
+    private void Start()
+    {
+        videoPlayer.prepareCompleted += PlayVideo;
+        videoPlayer.errorReceived += (_, _) => videoPlayerImage.texture = noPreviewTexture;
+    }
+
+    private void OnDestroy()
+    {
+        videoPlayer.prepareCompleted -= PlayVideo;
+        videoPlayer.errorReceived -= (_, _) => videoPlayerImage.texture = noPreviewTexture;
+    }
 
     public static string GetBasePath(string textAssetName) => Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DemoGames" + Path.DirectorySeparatorChar + textAssetName + Path.DirectorySeparatorChar;
 
@@ -52,11 +62,11 @@ public class GameDetailsLoader : MonoBehaviour
         startButton.onClick.RemoveAllListeners();
         startButton.onClick.AddListener(() => StartGame(game.GamePath));
 
-        string videoUrl = new string(game.TrailerVideoPath.Select(x => x == '\\' ? '/' : (x == '/' ? '\\' : x)).ToArray());
         videoPlayerImage.texture = loadingVideoTexture;
+
+        string videoUrl = new string(game.TrailerVideoPath.Select(x => x == '\\' ? '/' : (x == '/' ? '\\' : x)).ToArray());
         videoPlayer.url = videoUrl;
         videoPlayer.Prepare();
-        videoPlayer.prepareCompleted += PlayVideo;
 
         nameText.text = game.Author;
         if (string.IsNullOrEmpty(game.SemesterAltText)) semesterText.text = $"Semester {game.Semester}";

@@ -2,16 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-
-/* TODO: 
- * fancy up UI
- * add button sprite (use button sprite from either lost in time or kleptomanicat)
- * add video is loading sprite
- */
 
 public class PageMoveController : MonoBehaviour
 {

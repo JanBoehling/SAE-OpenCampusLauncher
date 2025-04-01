@@ -2265,12 +2265,11 @@ MonoBehaviour:
   videoPlayer: {fileID: 204512621}
   videoPlayerImage: {fileID: 1129814588}
   videoRenderTexture: {fileID: 8400000, guid: a5f15715a797866468082df61969168c, type: 2}
-  loadingVideoTexture: {fileID: 0}
+  loadingVideoTexture: {fileID: 2800000, guid: c6a17e64841220f4c9c4bb49327e947a, type: 3}
+  noPreviewTexture: {fileID: 2800000, guid: 88b026feedff75d49ae848224a312185, type: 3}
   nameText: {fileID: 198472962}
   semesterText: {fileID: 1196064121}
   titleText: {fileID: 757103714}
-  movePageLeftButton: {fileID: 0}
-  movePageRightButton: {fileID: 0}
 --- !u!1 &1786483085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868062341b1cc304c856f4622711b44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadImages: 1
   gameCardPrefab: {fileID: 6899581681124612267, guid: 36e8a10983ad32044911afec0fb6e588, type: 3}
   gameCardAnchorRows:
   - {fileID: 453695046}
