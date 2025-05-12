@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,26 +22,50 @@ public class PageMoveController : MonoSingleton<PageMoveController>
 
     private Coroutine _pageMoveAnimation;
 
+    private Func<bool> pageLeftMovePredicate;
+    private Func<bool> pageRightMovePredicate;
+
     protected override void Awake()
     {
         base.Awake();
         _buttons = GetComponentsInChildren<Button>();
+
+        pageLeftMovePredicate = () => CurrentPage > 0;
+        pageRightMovePredicate = () => CurrentPage < _pageAmount - 1;
     }
 
-    public void MovePage(SerializableEnumComponent direction)
+    private void Update()
+    {
+        if ((Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A)) && pageLeftMovePredicate.Invoke())
+        {
+            MovePage(Direction.Left);
+        }
+
+        else if ((Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)) && pageRightMovePredicate.Invoke())
+        {
+            MovePage(Direction.Right);
+        }
+    }
+
+    private void MovePage(Direction direction)
     {
         if (_pageMoveAnimation != null) return;
 
-        CurrentPage -= (int)direction.Value;
-        _pageMoveAnimation = StartCoroutine(MovePageCO((int)direction.Value));
+        CurrentPage -= (int)direction;
+        _pageMoveAnimation = StartCoroutine(MovePageCO((int)direction));
 
         UpdateInteractivity();
     }
 
+    public void MovePage(SerializableEnumComponent direction)
+    {
+        MovePage(direction.Value);
+    }
+
     private void UpdateInteractivity()
     {
-        _buttons[0].interactable = CurrentPage > 0;
-        _buttons[1].interactable = CurrentPage < _pageAmount - 1;
+        _buttons[0].interactable = pageLeftMovePredicate.Invoke();
+        _buttons[1].interactable = pageRightMovePredicate.Invoke();
     }
 
     public void SetPageAmount(int amount)
@@ -75,12 +101,14 @@ public class PageMoveController : MonoSingleton<PageMoveController>
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(PageMoveController))]
-public class PageMoverEditor : Editor
+public class PageMoveControllerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        EditorGUILayout.LabelField($"Current Page: {PageMoveController.Instance.CurrentPage}");
+
+        EditorGUILayout.Space();
+        EditorGUILayout.HelpBox($"Current Page: {PageMoveController.Instance.CurrentPage}", MessageType.None, true);
     }
     public override bool RequiresConstantRepaint() => true;
 }
